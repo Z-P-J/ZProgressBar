@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:padding="16dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <com.zpj.progressbar.ZProgressBar
+            android:id="@+id/progress_test2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:padding="8dp"
+            app:zbp_radius="28dp"
+            app:zbp_intermediate_mode="false"
+            />
+
+        <Switch
+            android:id="@+id/switch_intermediate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Intermediate Mode"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:id="@+id/tv_progress_bar_width"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Progress Bar Width"
+            />
+
+        <SeekBar
+            android:id="@+id/seek_progress_bar_width"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:min="1"
+            />
+
+        <TextView
+            android:id="@+id/tv_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Progress"
+            />
+
+        <SeekBar
+            android:id="@+id/seek_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            />
+
+        <TextView
+            android:id="@+id/tv_max_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Max Progress"
+            />
+
+        <SeekBar
+            android:id="@+id/seek_max_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="1000"
+            />
+
+        <TextView
+            android:id="@+id/tv_min_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Min Progress"
+            />
+
+        <SeekBar
+            android:id="@+id/seek_min_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            />
+
+        <com.zpj.progressbar.ZProgressBar
+            android:id="@+id/progress_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            app:zbp_radius="28dp"
+            app:zbp_intermediate_mode="false"
+            />
+
+        <Button
+            android:id="@+id/btn_restart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restart"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:paddingVertical="4dp"
+            android:paddingHorizontal="8dp"
+            android:background="@drawable/bg_button_round_green"
+            android:layout_gravity="center_horizontal"
+            >
+
+            <com.zpj.progressbar.ZProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_gravity="center"
+                app:zbp_radius="4dp"
+                app:zbp_progress_bar_color="@color/white"
+                app:zbp_progress_bar_width="1dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="扫描中..."
+                android:textSize="10sp"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                />
+
+        </LinearLayout>
+
+        <com.zpj.progressbar.ZProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            app:zbp_radius="12dp"
+            app:zbp_border_color="#c0f2d9"
+            app:zbp_progress_bar_width="3.5dp"
+            app:zbp_intermediate_mode="true"
+            app:zbp_progress_bar_color="#2ad181"
+            />
+
+        <com.zpj.progressbar.ZProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:padding="8dp"
+            app:zbp_radius="24dp"
+            app:zbp_border_color="?attr/colorAccent"
+            app:zbp_intermediate_mode="true"
+            app:zbp_progress_bar_color="?attr/colorPrimary"
+            />
+
+        <com.zpj.progressbar.ZProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            app:zbp_radius="28dp"
+            app:zbp_progress="60"
+            app:zbp_border_color="?attr/colorAccent"
+            app:zbp_progress_bar_color="?attr/colorPrimaryDark"
+            app:zbp_background_color="@color/teal_700"
+            />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ZProgressBar">
+        <attr name="zbp_progress" format="integer" />
+        <attr name="zbp_max_progress" format="integer" />
+        <attr name="zbp_min_progress" format="integer" />
+        <attr name="zbp_radius" format="dimension" />
+        <attr name="zbp_background_color" format="color" />
+        <attr name="zbp_border_width" format="dimension" />
+        <attr name="zbp_border_color" format="color" />
+        <attr name="zbp_progress_bar_width" format="dimension" />
+        <attr name="zbp_progress_bar_color" format="color" />
+        <attr name="zbp_intermediate_mode" format="boolean" />
+    </declare-styleable>
+
+</resources>

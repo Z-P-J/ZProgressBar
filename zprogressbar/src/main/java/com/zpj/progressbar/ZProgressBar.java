@@ -66,7 +66,6 @@ public class ZProgressBar extends View {
         mMinProgress = typedArray.getInt(R.styleable.ZProgressBar_zbp_min_progress, (int) (mMaxProgress / 10));
         mProgress = typedArray.getInt(R.styleable.ZProgressBar_zbp_progress, (int) (mMaxProgress / 2));
         mRadius = typedArray.getDimensionPixelSize(R.styleable.ZProgressBar_zbp_radius, defaultRadius);
-        Log.d("ZProgressBar", "mRadius=" + mRadius);
         mBackgroundColor = typedArray.getColor(R.styleable.ZProgressBar_zbp_background_color, Color.TRANSPARENT);
         mBorderColor = typedArray.getColor(R.styleable.ZProgressBar_zbp_border_color, mBackgroundColor);
         mProgressBarWidth = typedArray.getDimensionPixelSize(R.styleable.ZProgressBar_zbp_progress_bar_width, defaultProgressBarWidth);

@@ -1,8 +1,6 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
-
-apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.zpj'
 
 android {
     compileSdkVersion 28
@@ -23,16 +21,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-
-    publish {
-        artifactId = 'ZProgressBar'
-        userOrg = 'z-p-j'
-        groupId = 'com.zpj.progressbar'
-        publishVersion = '1.0.0'
-        desc = 'A customized Android ProgressBar.'
-        website = 'https://github.com/Z-P-J/ZProgressBar'
-        licences = ['Apache-2.0']
     }
 
 }

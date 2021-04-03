@@ -5,7 +5,7 @@
 
 ## Install
 
-#### Latest Version：[![Download](https://api.bintray.com/packages/z-p-j/maven/ZProgressBar/images/download.svg?version-1.0.0)](https://bintray.com/z-p-j/maven/ZProgressBar/1.0.0/link)
+#### Latest Version：[![](https://jitpack.io/v/Z-P-J/ZProgressBar.svg)](https://jitpack.io/#Z-P-J/ZProgressBar)
 ```groovy
 implementation 'com.zpj.progressbar:ZProgressBar:latest_version'
 ```
@@ -48,5 +48,11 @@ implementation 'com.zpj.progressbar:ZProgressBar:latest_version'
         <attr name="zbp_progress_bar_color" format="color" />
         <!--intermediate模式，是否精确显示，false表示精确显示进度，true表示不精确显示进度-->
         <attr name="zbp_intermediate_mode" format="boolean" />
+        <!--进度文字颜色，默认黑色-->
+        <attr name="zbp_progress_text_color" format="color" />
+        <!--进度文字大小，默认自动适应文字大小-->
+        <attr name="zbp_progress_text_size" format="dimension" />
+        <!--是否显示进度文字，在非intermediate模式下有效-->
+        <attr name="zbp_show_progress_text" format="boolean" />
 </declare-styleable>
 ```

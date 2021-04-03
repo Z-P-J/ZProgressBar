@@ -23,6 +23,7 @@ public class ZProgressBar extends View {
      * 画笔
      */
     private final Paint mPaint = new Paint();
+    private final Paint mTextPaint = new Paint();
     private final RectF mRect = new RectF();
 
     private float mProgress;
@@ -39,6 +40,11 @@ public class ZProgressBar extends View {
     private float mWidth;
     private float mHeight;
     private float mRadius;
+
+    private boolean showProgressText;
+    private boolean autoTextSize;
+    private float mProgressTextSize;
+    private int mProgressTextColor;
 
     private float mStartAngle = -90f;
 
@@ -76,10 +82,19 @@ public class ZProgressBar extends View {
         mProgressBarColor = typedArray.getColor(R.styleable.ZProgressBar_zbp_progress_bar_color, getColorPrimary());
         mIsIntermediateMode = typedArray.getBoolean(R.styleable.ZProgressBar_zbp_intermediate_mode, true);
 
+        mProgressTextColor = typedArray.getColor(R.styleable.ZProgressBar_zbp_progress_text_color, Color.BLACK);
+        mProgressTextSize = typedArray.getDimensionPixelSize(R.styleable.ZProgressBar_zbp_progress_text_size, 0);
+        autoTextSize = mProgressTextSize <= 0;
+        showProgressText = typedArray.getBoolean(R.styleable.ZProgressBar_zbp_show_progress_text, !mIsIntermediateMode);
+
         typedArray.recycle();
 
         mPaint.setAntiAlias(true);
         mPaint.setDither(true);
+
+        mTextPaint.setTextAlign(Paint.Align.CENTER);
+        mTextPaint.setAntiAlias(true);
+        mTextPaint.setTextSize(40);
 
         if (mIsIntermediateMode) {
             startIntermediateAnim();
@@ -129,10 +144,28 @@ public class ZProgressBar extends View {
         mPaint.setStrokeCap(Paint.Cap.ROUND);
         mPaint.setStrokeWidth(mProgressBarWidth);
         canvas.drawArc(mRect, mStartAngle, angle, false, mPaint);
+
+        if (showProgressText) {
+            if (autoTextSize) {
+                mProgressTextSize = Math.min(mRadius - mBorderWidth, mRadius - mProgressBarWidth) / 2;
+            }
+            mTextPaint.setTextSize(mProgressTextSize);
+            mTextPaint.setColor(mProgressTextColor);
+            String text = Math.round(mProgress / mMaxProgress * 100) + "%";
+            Paint.FontMetrics fontMetrics = mTextPaint.getFontMetrics();
+            float distance = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
+            float baseline = mHeight / 2 + distance;
+            canvas.drawText(text, mWidth / 2, baseline, mTextPaint);
+        }
     }
 
     public float getRadius() {
         return mRadius;
+    }
+
+    public void setProgressBarRadius(float mRadius) {
+        this.mRadius = mRadius;
+        requestLayout();
     }
 
     public void setProgressBarBackgroundColor(int mBackgroundColor) {
@@ -214,6 +247,38 @@ public class ZProgressBar extends View {
         return mProgressBarColor;
     }
 
+    public void setProgressTextColor(int mProgressTextColor) {
+        this.mProgressTextColor = mProgressTextColor;
+        invalidate();
+    }
+
+    public int getProgressTextColor() {
+        return mProgressTextColor;
+    }
+
+    public void setProgressTextSize(float mProgressTextSize) {
+        this.mProgressTextSize = mProgressTextSize;
+        autoTextSize = mProgressTextSize <= 0;
+        invalidate();
+    }
+
+    public float getProgressTextSize() {
+        return mProgressTextSize;
+    }
+
+    public void setShowProgressText(boolean showProgressText) {
+        if (mIsIntermediateMode) {
+            this.showProgressText = showProgressText;
+        } else {
+            this.showProgressText = false;
+        }
+        invalidate();
+    }
+
+    public boolean isShowProgressText() {
+        return showProgressText;
+    }
+
     public void setBorderColor(int mBorderColor) {
         this.mBorderColor = mBorderColor;
         invalidate();
@@ -237,6 +302,7 @@ public class ZProgressBar extends View {
             return;
         }
         this.mIsIntermediateMode = mIsIntermediateMode;
+        showProgressText = !mIsIntermediateMode;
         if (mIsIntermediateMode) {
             if (valueAnimator != null) {
                 if (!valueAnimator.isRunning()) {

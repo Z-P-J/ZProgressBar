@@ -1,10 +1,12 @@
 package com.zpj.progressbar.demo;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -23,6 +25,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        LinearLayout llContainer = findViewById(R.id.ll_container);
+
+        ZProgressBar custom = new ZProgressBar(this);
+        custom.setProgressBarWidth(getResources().getDisplayMetrics().density * 3.5f);
+        custom.setBorderWidth(getResources().getDisplayMetrics().density * 3.5f);
+        custom.setProgressBarRadius(getResources().getDisplayMetrics().density * 12);
+        custom.setBorderColor(Color.parseColor("#c0f2d9"));
+        custom.setProgressBarColor(Color.parseColor("#2ad181"));
+
+        llContainer.addView(custom);
+
 
         progressBar = findViewById(R.id.progress_test);
         restartBtn = findViewById(R.id.btn_restart);

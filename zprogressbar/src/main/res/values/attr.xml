@@ -12,6 +12,9 @@
         <attr name="zbp_progress_bar_width" format="dimension" />
         <attr name="zbp_progress_bar_color" format="color" />
         <attr name="zbp_intermediate_mode" format="boolean" />
+        <attr name="zbp_progress_text_color" format="color" />
+        <attr name="zbp_progress_text_size" format="dimension" />
+        <attr name="zbp_show_progress_text" format="boolean" />
     </declare-styleable>
 
 </resources>
